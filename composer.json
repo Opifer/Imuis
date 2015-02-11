@@ -1,0 +1,18 @@
+{
+    "name": "opifer/imuis",
+    "license": "MIT",
+    "type": "library",
+    "description": "PHP library to access the imuis API",
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": "~4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.2",
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "~0.9"
+    },
+    "autoload": {
+        "psr-4": { "Opifer\\Imuis\\": "./" }
+    }
+}
