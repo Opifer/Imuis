@@ -14,14 +14,19 @@ use Opifer\Imuis\Response\Response;
  */
 class Client
 {
+    /** @var string */
     protected $partnerKey;
-
+    
+    /** @var string */
     protected $environment;
-
+    
+    /** @var string */
     protected $url;
-
+    
+    /** @var \GuzzleHttp\Client */
     protected $_client;
-
+    
+    /** @var string */
     protected $_session;
 
     /**
@@ -89,10 +94,10 @@ class Client
     }
 
     /**
-    * Find a creditor by its ID
-    *
-    * @param integer $id
-    */
+     * Find a creditor by its ID
+     *
+     * @param integer $id
+     */
     public function findCreditor($id)
     {
         $criteria = new Criteria();
@@ -208,10 +213,10 @@ class Client
     }
 
     /**
-    * Get session ID
-    *
-    * @return string
-    */
+     * Get session ID
+     *
+     * @return string
+     */
     public function getSessionID()
     {
         if (null === $this->_session) {
