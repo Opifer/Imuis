@@ -2,7 +2,7 @@
 
 namespace Opifer\Imuis;
 
-use Opifer\Imuis\Exception\InvalidLoginException;
+use Opifer\Imuis\Exception\FailedLoginException;
 use Opifer\Imuis\Model\Creditor;
 use Opifer\Imuis\Model\Journal;
 use Opifer\Imuis\Criteria\Criteria;
