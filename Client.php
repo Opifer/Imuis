@@ -2,6 +2,7 @@
 
 namespace Opifer\Imuis;
 
+use Opifer\Imuis\Exception\InvalidLoginException;
 use Opifer\Imuis\Model\Creditor;
 use Opifer\Imuis\Model\Journal;
 use Opifer\Imuis\Criteria\Criteria;
@@ -162,6 +163,10 @@ class Client
                 'omgevingscode' => $this->environment
             ]
         ]);
+
+        if (isset($response->ERROR)) {
+            throw new FailedLoginException($response->ERROR->MESSAGE);
+        }
 
         return (string) $response->xml()->SESSION->SESSIONID;
     }
