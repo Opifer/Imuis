@@ -157,6 +157,8 @@ class Client
     /**
      * Logs in to the iMuis API and returns the session ID
      *
+     * @throws FailedLoginException
+     *
      * @return string
      */
     public function login()
@@ -169,11 +171,13 @@ class Client
             ]
         ]);
 
-        if (isset($response->ERROR)) {
-            throw new FailedLoginException($response->ERROR->MESSAGE);
+        $xmlResponse = $response->xml();
+
+        if (isset($xmlResponse->ERROR)) {
+            throw new FailedLoginException($xmlResponse->ERROR->MESSAGE);
         }
 
-        return (string) $response->xml()->SESSION->SESSIONID;
+        return (string) $xmlResponse->SESSION->SESSIONID;
     }
 
     /**
